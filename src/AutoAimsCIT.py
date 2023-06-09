@@ -6,9 +6,9 @@ NOTE: THIS IS FOR TESTING AND EDUCATIONAL PURPOSES ONLY, I AM NOT RESPONSIBLE FO
 '''
 
 from selenium import webdriver
-from selenium.webdriver import Keys
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
 from selenium_stealth import stealth
 
 
@@ -34,51 +34,29 @@ class AutoAIMS:
                 )
 
         self.driver.get("https://cituweb.pinnacle.com.ph/aims/students/")
-
-        '''
-        self.menu is the menu bar in that website. These are the following menus:
-
-        0 = Section Offering
-        1 = Profile
-        2 = Registration
-        3 = Grades
-        4 = Account
-        5 = Calendar
-        6 = Faculty Evaluation
-        7 = Password
-        8 = Schedule
-        9 = Curriculum/Evaluation
-        10 = Announcement
-        11 = Student HandBook
-
-        '''
         self.menu = []
 
     def login(self, username, password):
         """
-
+        Logs in to CIT-U's AIMS
         :param username: University ID of the user.
         :param password: a password, duh!
-
-        Logs in to CIT-U's AIMS
-
         """
 
-        user, pwd = self.driver.find_element(By.NAME, "username"), self.driver.find_element(By.NAME, "password")
-        user.send_keys(username)
-        pwd.send_keys(password)
-        pwd.send_keys(Keys.ENTER)
+        username_field = self.driver.find_element(By.NAME, "username")
+        password_field = self.driver.find_element(By.NAME, "password")
+
+        username_field.send_keys(username)
+        password_field.send_keys(password)
+        password_field.send_keys(Keys.ENTER)
 
         # Menu
         self.menu = self.driver.find_elements(By.XPATH, "//div[@class='row aims-menu']//a")
 
     def automate_faculty_evaluation(self):
-        '''
-
+        """
         Cannot make a script simply because the faculty evaluation is not open yet
-        or I don't have the source code of the faculty evaluation when its open
-
+        or I don't have the source code of the faculty evaluation when it's open
         TODO: Find out how the faculty evaluation works if it is open
-
-        '''
+        """
         ...
