@@ -1,0 +1,10 @@
+service_path = "/usr/bin/google-chrome"
+useragent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36"
+languages = ["en-US", "en"]
+vendor = "Google Inc."
+platform = "Win32"
+webgl_vendor = "Intel Inc."
+renderer = "Intel Iris OpenGL Engine"
+fix_hairline = True
+run_on_insecure_origins = False
+hide_window = True
